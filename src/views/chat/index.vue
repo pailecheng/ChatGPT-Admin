@@ -625,12 +625,13 @@ async function handPhoto(): Promise<void> {
       try {
         const response = await fetchUpload(formData)
         const chatUuid = Date.now()
+        const url = response.toString()
           addChat(
             +uuid,
             {
               uuid: chatUuid,
               dateTime: new Date().toLocaleString(),
-              text: 'https://www.baidu.com',
+              text: url,
               inversion: true,
               isurl:true,
               error: false,
