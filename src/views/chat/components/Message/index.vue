@@ -183,9 +183,8 @@ async function handlePreviousResponse(next: number) {
           :as-raw-text="asRawText"
         />
         <NImage
-          v-if="isurl&&inversion"
+          v-if="isurl"
           object-fit="contain"
-          :inversion="inversion"
           :isurl="isurl"
           :error="error"
           :src="text"
