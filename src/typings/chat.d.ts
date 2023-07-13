@@ -5,7 +5,7 @@ declare namespace Chat {
     dateTime: string
     text: string
     inversion?: boolean
-    isurl:string
+    isurl?:boolean
     responseCount?: number
     error?: boolean
     loading?: boolean
