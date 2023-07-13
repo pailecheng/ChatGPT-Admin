@@ -90,7 +90,7 @@ async function onConversation() {
       dateTime: new Date().toLocaleString(),
       text: message,
       inversion: true,
-      isurl:false,
+      isurl:'',
       error: false,
       conversationOptions: null,
       requestOptions: { prompt: message, options: null },
@@ -114,7 +114,7 @@ async function onConversation() {
       text: '',
       loading: true,
       inversion: false,
-      isurl:false,
+      isurl:'',
       error: false,
       conversationOptions: null,
       requestOptions: { prompt: message, options: { ...options } },
@@ -157,7 +157,7 @@ async function onConversation() {
                 dateTime: new Date().toLocaleString(),
                 text: lastText + (data.text ?? ''),
                 inversion: false,
-                isurl:false,
+                isurl:'',
                 error: false,
                 loading: true,
                 conversationOptions: { conversationId: data.conversationId, parentMessageId: data.id },
@@ -222,7 +222,7 @@ async function onConversation() {
         dateTime: new Date().toLocaleString(),
         text: errorMessage,
         inversion: false,
-        isurl:false,
+        isurl:'',
         error: true,
         loading: false,
         conversationOptions: null,
@@ -262,7 +262,7 @@ async function onRegenerate(index: number) {
       dateTime: new Date().toLocaleString(),
       text: '',
       inversion: false,
-      isurl:false,
+      isurl:'',
       responseCount,
       error: false,
       loading: true,
@@ -307,7 +307,7 @@ async function onRegenerate(index: number) {
                 dateTime: new Date().toLocaleString(),
                 text: lastText + (data.text ?? ''),
                 inversion: false,
-                isurl:false,
+                isurl:'',
                 responseCount,
                 error: false,
                 loading: true,
@@ -354,7 +354,7 @@ async function onRegenerate(index: number) {
         dateTime: new Date().toLocaleString(),
         text: errorMessage,
         inversion: false,
-        isurl:false,
+        isurl:'',
         responseCount,
         error: true,
         loading: false,
@@ -377,7 +377,7 @@ async function onResponseHistory(index: number, historyIndex: number) {
       dateTime: chat.dateTime,
       text: chat.text,
       inversion: false,
-      isurl:false,
+      isurl:'',
       responseCount: chat.responseCount,
       error: true,
       loading: false,
@@ -633,17 +633,13 @@ async function handPhoto(): Promise<void> {
               dateTime: new Date().toLocaleString(),
               text: url,
               inversion: true,
-              isurl:true,
+              isurl:'',
               error: false,
               conversationOptions: null,
               requestOptions: { prompt: response.toString(), options: null },
             },
           )
-<<<<<<< HEAD
-        console.log(response.toString())
-=======
         console.log('URL地址：',response.toString())
->>>>>>> a047e1c95ca4e62427c4f448f3676ebcfbad8600
       } catch (error) {
         console.error(error)
       }
@@ -682,7 +678,7 @@ async function handPhoto(): Promise<void> {
                   :key="index"
                   :date-time="item.dateTime"
                   :inversion="item.inversion"
-                  :isurl="typeof item.isurl === 'boolean' ? item.isurl:false"
+                  :isurl="typeof item.isurl === 'string' ? item.isurl.toString() : ''"
                   :response-count="item.responseCount"
                   :usage="item && item.usage || undefined"
                   :error="item.error"
@@ -690,7 +686,7 @@ async function handPhoto(): Promise<void> {
                   @regenerate="onRegenerate(index)"
                   @delete="handleDelete(index)"
                   @response-history="(ev) => onResponseHistory(index, ev)"
-                  :text="typeof item.text === 'string' && !item.isurl ? item.text : undefined"
+                  :text="typeof item.text === 'string' && item.isurl=='' ? item.text : undefined"
                 />
                 <div class="sticky bottom-0 left-0 flex justify-center">
                   <NButton v-if="loading" type="warning" @click="handleStop">

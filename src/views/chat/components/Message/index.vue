@@ -13,7 +13,7 @@ interface Props {
   dateTime?: string
   text?: string
   inversion?: boolean
-  isurl:boolean
+  isurl:string
   error?: boolean
   loading?: boolean
   responseCount?: number
@@ -183,11 +183,11 @@ async function handlePreviousResponse(next: number) {
           :as-raw-text="asRawText"
         />
         <NImage
-          v-if="isurl"
+          v-if="isurl!=''"
           object-fit="contain"
           :isurl="isurl"
           :error="error"
-          :src="text"
+          :src="isurl"
          />
         <div class="flex flex-col">
           <button
