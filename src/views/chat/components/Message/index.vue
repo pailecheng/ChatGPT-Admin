@@ -191,7 +191,7 @@ async function handlePreviousResponse(next: number) {
           :text="text"
           :loading="loading"
           :as-raw-text="asRawText"
-          src={{ text }}
+          src="https://www.baidu.com"
          />
          <p>{{ text }}</p>
         <div class="flex flex-col">
