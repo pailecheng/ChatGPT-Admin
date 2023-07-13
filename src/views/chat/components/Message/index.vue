@@ -188,12 +188,10 @@ async function handlePreviousResponse(next: number) {
           :inversion="inversion"
           :isurl="isurl"
           :error="error"
-          :text="text"
           :loading="loading"
           :as-raw-text="asRawText"
-          src="https://www.baidu.com"
+          :src="text"
          />
-         <p>{{ text }}</p>
         <div class="flex flex-col">
           <button
             v-if="!inversion"
