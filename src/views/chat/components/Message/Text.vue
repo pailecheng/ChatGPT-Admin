@@ -9,7 +9,7 @@ import { t } from '@/locales'
 import { copyToClip } from '@/utils/copy'
 
 interface Props {
-  isurl?:string
+  isurl?:boolean
   inversion?: boolean
   error?: boolean
   text?: string
@@ -101,7 +101,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="text-black" :class="isurl=='' ? '' : wrapClass">
+  <div class="text-black" :class="isurl ? '' : wrapClass">
     <div ref="textRef" class="leading-relaxed break-words">
       <div v-if="!inversion" class="flex items-end">
         <div v-if="!asRawText" class="w-full markdown-body" v-html="text" />

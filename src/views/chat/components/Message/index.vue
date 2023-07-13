@@ -13,7 +13,7 @@ interface Props {
   dateTime?: string
   text?: string
   inversion?: boolean
-  isurl:string
+  isurl:boolean
   error?: boolean
   loading?: boolean
   responseCount?: number
@@ -173,22 +173,25 @@ async function handlePreviousResponse(next: number) {
         class="flex items-end gap-1 mt-2"
         :class="[inversion ? 'flex-row-reverse' : 'flex-row']"
       >
-        <!-- <TextComponent
-          v-if="isurl==''&&!inversion"
+        <TextComponent
           ref="textRef"
           :inversion="inversion"
-          :isurl="''"
+          :isurl="isurl"
           :error="error"
           :text="text"
           :loading="loading"
           :as-raw-text="asRawText"
-        /> -->
+        />
         <NImage
-          v-if="isurl!=''"
+          v-if="isurl&&inversion"
           object-fit="contain"
+          :inversion="inversion"
           :isurl="isurl"
           :error="error"
-          :src="isurl"
+          :text="text"
+          :loading="loading"
+          :as-raw-text="asRawText"
+          src="bc/68747470733a2f2f692e6c6f6c692e6e65742f323031382f31312f30342f356264663066626162383663652e706e67"
          />
         <div class="flex flex-col">
           <button
