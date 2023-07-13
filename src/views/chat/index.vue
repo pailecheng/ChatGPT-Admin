@@ -631,7 +631,7 @@ async function handPhoto(): Promise<void> {
             {
               uuid: chatUuid,
               dateTime: new Date().toLocaleString(),
-              text: url,
+              text: 'https://'+url,
               inversion: true,
               isurl:true,
               error: false,
@@ -639,7 +639,7 @@ async function handPhoto(): Promise<void> {
               requestOptions: { prompt: response.toString(), options: null },
             },
           )
-        console.log('URL地址：',response.toString())
+        console.log('URL地址：','https://'+response.toString())
       } catch (error) {
         console.error(error)
       }
