@@ -176,6 +176,7 @@ async function handlePreviousResponse(next: number) {
         <TextComponent
           ref="textRef"
           :inversion="inversion"
+          :isurl="''"
           :error="error"
           :text="text"
           :loading="loading"
