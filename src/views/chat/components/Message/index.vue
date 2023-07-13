@@ -174,6 +174,7 @@ async function handlePreviousResponse(next: number) {
         :class="[inversion ? 'flex-row-reverse' : 'flex-row']"
       >
         <TextComponent
+          v-if="isurl==''"
           ref="textRef"
           :inversion="inversion"
           :isurl="''"
