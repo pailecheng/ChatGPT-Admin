@@ -190,7 +190,7 @@ async function handlePreviousResponse(next: number) {
           :error="error"
           :loading="loading"
           :as-raw-text="asRawText"
-          :src="`${text}`"
+          :src="`${text.replace(window.location.origin, '')}`"
          />
         <div class="flex flex-col">
           <button
