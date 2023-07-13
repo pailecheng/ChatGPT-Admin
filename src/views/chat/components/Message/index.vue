@@ -183,15 +183,11 @@ async function handlePreviousResponse(next: number) {
           :as-raw-text="asRawText"
         />
         <NImage
-          v-if="isurl&&inversion"
+          v-if="isurl"
           object-fit="contain"
-          :inversion="inversion"
           :isurl="isurl"
           :error="error"
-          :text="text"
-          :loading="loading"
-          :as-raw-text="asRawText"
-          src="bc/68747470733a2f2f692e6c6f6c692e6e65742f323031382f31312f30342f356264663066626162383663652e706e67"
+          :src="text"
          />
         <div class="flex flex-col">
           <button
