@@ -639,11 +639,7 @@ async function handPhoto(): Promise<void> {
               requestOptions: { prompt: response.toString(), options: null },
             },
           )
-<<<<<<< HEAD
-        console.log(response.toString())
-=======
         console.log('URL地址：',response.toString())
->>>>>>> a047e1c95ca4e62427c4f448f3676ebcfbad8600
       } catch (error) {
         console.error(error)
       }
